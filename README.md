@@ -15,6 +15,8 @@ These instructions will get you a copy of the project up and running on your loc
 ````
 # Architecture
 ## Components
+![ingestion_components](https://user-images.githubusercontent.com/32476754/35489198-7996422c-0448-11e8-96cf-9e4c6385a0ee.png)
+
 # Project Setup
 ### - MongoDB
 1. Download MongoDB community version - https://www.mongodb.com/download-center#community
