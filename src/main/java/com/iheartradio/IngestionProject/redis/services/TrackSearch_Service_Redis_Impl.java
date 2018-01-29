@@ -100,11 +100,8 @@ public class TrackSearch_Service_Redis_Impl implements TrackSearch_Service_Redis
     @Override
     public List<Track> getTrackFromSearch(String searchKey) {
         if (check_SearchKey(searchKey)) {
-            System.out.println("SearchKey==" + searchKey);
             List<String> keys = searchTrack_repository.findOne(searchKey).getTrackIds();
-            System.out.println("Keys==" + keys);
             Iterable<Track_R> iterable = trackList_reository.findAll(keys);
-            System.out.println(iterable.toString());
             return StreamSupport.stream(iterable.spliterator(), false).map(x -> x.getTrack()).collect(Collectors.toList());
         } else {
             return new ArrayList<Track>();

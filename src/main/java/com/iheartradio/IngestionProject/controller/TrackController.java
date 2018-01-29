@@ -6,6 +6,7 @@ import com.iheartradio.IngestionProject.exception.TrackInternalServerException;
 import com.iheartradio.IngestionProject.exception.TrackNotFoundException;
 import com.iheartradio.IngestionProject.repository.TrackRepository;
 import com.iheartradio.IngestionProject.services.TrackService;
+import com.iheartradio.IngestionProject.services.TrackService_Impl;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ import java.util.List;
 public class TrackController {
 
     @Autowired
-    TrackService trackService;
+    TrackService_Impl trackService;
 
     /**
      * get_All_Apps_All_Metrics - Rest API to search tracks

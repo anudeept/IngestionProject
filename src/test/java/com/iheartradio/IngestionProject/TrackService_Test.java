@@ -4,6 +4,7 @@ import com.iheartradio.IngestionProject.domain.*;
 import com.iheartradio.IngestionProject.redis.services.TrackSearch_Service_Redis;
 import com.iheartradio.IngestionProject.redis.services.TrackSearch_Service_Redis_Impl;
 import com.iheartradio.IngestionProject.services.TrackService;
+import com.iheartradio.IngestionProject.services.TrackService_Impl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,13 +27,13 @@ public class TrackService_Test {
     @Mock
     MongoTemplate mongoTemplate;
 
-    private TrackService trackService;
+    private TrackService_Impl trackService;
     private Track track;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        trackService = new TrackService(mongoTemplate, trackSearch_service_redis);
+        trackService = new TrackService_Impl(mongoTemplate, trackSearch_service_redis);
         track = new Track();
         ProductInfo productInfo = new ProductInfo();
         Language language = new Language();
