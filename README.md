@@ -14,8 +14,50 @@ These instructions will get you a copy of the project up and running on your loc
 
 ````
 # Architecture
-## Components
+### - Components
 ![ingestion_components](https://user-images.githubusercontent.com/32476754/35489198-7996422c-0448-11e8-96cf-9e4c6385a0ee.png)
+### - Request Flow
+![ingestion_requestflow](https://user-images.githubusercontent.com/32476754/35489818-5437dec6-044f-11e8-9ec7-e7bf31730eeb.png)
+### Redis Datastructure
+````
+- Track_Search
+ * key - Artist/Genre/title
+ * Value - [000-SAMPLE-ABC,111-SAMPLE-ABC]
+- Track_R
+ * key - 000-SAMPLE-ABC
+ * Value - Track object
+````
+### MongoDB Datastructure
+````
+{
+    "_id" : ObjectId("5a6d43e71ccc57166cf182ae"),
+    "PRODUCTINFO" : {
+        "LANGUAGE" : {
+            "AMWKEY" : "000-SAMPLE-ABC",
+            "COPYRIGHTYEAR" : "2010",
+            "PUBLISHER" : "(P) 2010 Sony Music Entertainment",
+            "EXPLICITLYRICS" : "false",
+            "TITLE" : "The Boys of Fall",
+            "DURATION" : 392,
+            "COPYRIGHT" : "(P) 2010 Sony Music Entertainment",
+            "TRACKNUMBER" : 1,
+            "ARTIST" : "Kenny Chesney"
+        }
+    },
+    "GENRES" : [ 
+        {
+            "GENRENAME" : "Country"
+        }
+    ],
+    "FILES" : [ 
+        {
+            "FILEINFO" : {
+                "ACCESSSTRING" : "resources/000-SAMPLE-ABC.mp3"
+            }
+        }
+    ]
+}
+````
 
 # Project Setup
 ### - MongoDB
