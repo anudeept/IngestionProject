@@ -18,7 +18,9 @@ These instructions will get you a copy of the project up and running on your loc
 ![ingestion_components](https://user-images.githubusercontent.com/32476754/35489198-7996422c-0448-11e8-96cf-9e4c6385a0ee.png)
 ### - Request Flow
 ![ingestion_requestflow](https://user-images.githubusercontent.com/32476754/35489818-5437dec6-044f-11e8-9ec7-e7bf31730eeb.png)
-### Redis Datastructure
+### Redis
+* MaxMemory Policy - allkeys-lru: evict keys by trying to remove the less recently used (LRU) keys first, in order to make space for the new data added.
+#### Redis - Datastructure
 ````
 - Track_Search
  * key - Artist/Genre/title
@@ -58,6 +60,21 @@ These instructions will get you a copy of the project up and running on your loc
     ]
 }
 ````
+## Scalable Architecture
+Scale each layer independently
+* Rest API Layer with Load balancer and N no of nodes
+* Redis Cluster
+* Implemting LRU cache in redis to remove least accessed data
+* MongoDB horizontal sharding wit replica sets
+
+![ingestion_scalable](https://user-images.githubusercontent.com/32476754/35490125-2ecde8da-0452-11e8-85d7-2cd8016e8136.png)
+
+## Assumptions
+* Data will only get inserted or updated from XML file at initialization of project
+* User can only search with attributes Artist/genre/title
+
+## Suggestion
+* When XML file data is huge it will take some in project initialization i would recommed to data reading and insertion as a seperate serive
 
 # Project Setup
 ### - MongoDB
